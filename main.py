@@ -22,3 +22,11 @@ async def root(index: str, offset: int = 0, limit: int = 15,
     data['results'] = response['hits']['hits']
     data['aggregations'] = response['aggregations']
     return data
+
+
+@app.get("/{index}/{record_id}")
+async def details(index: str, record_id: str):
+    data = dict()
+    data['index'] = index
+    data['record_id'] = record_id
+    return data
